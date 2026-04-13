@@ -18,34 +18,35 @@ Referenz-Diagramm: [esp32-devkitC-v4-pinout.png](esp32-devkitC-v4-pinout.png)
 
 ## Vollständiges Pinout — ESP32 DevKit C V4
 
-Orientierung: USB-Anschluss oben. Linke Spalte = J2, rechte Spalte = J3.
+Orientierung: USB-Anschluss **unten**. Linke Spalte = J2, rechte Spalte = J3.
 
 ```
-                      ┌──────────────────────┐
-                      │  ┌─────────────────┐  │
-                      │  │   ESP32-WROOM   │  │  ← USB oben
-                      │  └─────────────────┘  │
-                      │                        │
-    GND       ────────○  1               38 ○────────  3V3
-    GPIO23    ────────○  2               37 ○────────  EN  (Reset)
-    GPIO22    ────────○  3               36 ○────────  GPIO36     (Input only)
-[!] GPIO1 TX  ────────○  4               35 ○────────  GPIO39     (Input only)
-[!] GPIO3 RX  ────────○  5               34 ○────────  GPIO34     (Input only)
-[*] GPIO21    ────────○  6  ◄ BTN4       33 ○────────  GPIO35     (Input only)
-    GND       ────────○  7               32 ○────────  GPIO32
-[*] GPIO19    ────────○  8  ◄ BTN3       31 ○────────  GPIO33
-[*] GPIO18    ────────○  9  ◄ BTN2       30 ○────────  GPIO25     (DAC1)
+[!] GPIO6     ────────○  1  Flash CLK    20 ○────────  VIN (+5V)
+[!] GPIO7     ────────○  2  Flash SD0    21 ○────────  GPIO11 [!] Flash CMD
+[!] GPIO8     ────────○  3  Flash SD1    22 ○────────  GPIO10 [!] Flash SD3
+[!] GPIO15    ────────○  4  Strapping    23 ○────────  GPIO9  [!] Flash SD2
+[!] GPIO2     ────────○  5  onb. LED     24 ○────────  GPIO13
+[!] GPIO0     ────────○  6  Boot         25 ○────────  GND
+    GPIO4     ────────○  7               26 ○────────  GPIO12 [!] Strapping
+[*] GPIO16    ────────○  8  ► LED Data   27 ○────────  GPIO14
+[*] GPIO17    ────────○  9  ◄ BTN1       28 ○────────  GPIO27
     GPIO5     ────────○ 10               29 ○────────  GPIO26     (DAC2)
-[*] GPIO17    ────────○ 11  ◄ BTN1       28 ○────────  GPIO27
-[*] GPIO16    ────────○ 12  ► LED Data   27 ○────────  GPIO14
-    GPIO4     ────────○ 13               26 ○────────  GPIO12 [!] Strapping
-[!] GPIO0     ────────○ 14  Boot         25 ○────────  GND
-[!] GPIO2     ────────○ 15  onb. LED     24 ○────────  GPIO13
-[!] GPIO15    ────────○ 16  Strapping    23 ○────────  GPIO9  [!] Flash SD2
-[!] GPIO8     ────────○ 17  Flash SD1    22 ○────────  GPIO10 [!] Flash SD3
-[!] GPIO7     ────────○ 18  Flash SD0    21 ○────────  GPIO11 [!] Flash CMD
-[!] GPIO6     ────────○ 19  Flash CLK    20 ○────────  VIN (+5V)
-                      └──────────────────────┘
+[*] GPIO18    ────────○ 11  ◄ BTN2       30 ○────────  GPIO25     (DAC1)
+[*] GPIO19    ────────○ 12  ◄ BTN3       31 ○────────  GPIO33
+    GND       ────────○ 13               32 ○────────  GPIO32
+[*] GPIO21    ────────○ 14  ◄ BTN4       33 ○────────  GPIO35     (Input only)
+[!] GPIO3 RX  ────────○ 15               34 ○────────  GPIO34     (Input only)
+[!] GPIO1 TX  ────────○ 16               35 ○────────  GPIO39     (Input only)
+    GPIO22    ────────○ 17               36 ○────────  GPIO36     (Input only)
+    GPIO23    ────────○ 18               37 ○────────  EN  (Reset)
+    GND       ────────○ 19               38 ○────────  3V3
+                      │                        │
+                      │  ┌─────────────────┐  │
+                      │  │   ESP32-WROOM   │  │
+                      │  └─────────────────┘  │
+                      │    ┌───────────────┐   │
+                      │    │  USB  (unten) │   │
+                      └────┴───────────────┴───┘
 
   [*] = in Verwendung    [!] = nicht verwenden / reserviert
 ```
