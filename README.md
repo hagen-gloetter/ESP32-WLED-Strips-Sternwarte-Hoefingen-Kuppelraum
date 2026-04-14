@@ -62,6 +62,19 @@ Einkaufsliste:   [docs/shopping.md](docs/shopping.md)
    - `config/wled_presets_v2.json` — Presets & Button-Macros
 3. Neu starten.
 
+> [!ACHTUNG]
+> **VIN und USB niemals gleichzeitig anschließen!**
+>
+> Auf diesem ESP32 DevKit sind USB-VBUS und VIN direkt verbunden (keine Schutzdiode).
+> Bei gleichzeitigem Anschluss fließt Strom rückwärts — das kann den USB-Controller
+> des PCs oder das Netzteil dauerhaft beschädigen.
+>
+> | Modus | Vorgehen |
+> |---|---|
+> | **Normalbetrieb**  | Nur VIN vom Netzteil — USB-Kabel abstecken |
+> | **Flashen / Konfigurieren** | Nur USB — VIN-Leitung abstecken |
+> | **Beides gleichzeitig nötig** | USB-Kabel ohne VBUS verwenden (Data-only) |
+
 ---
 
 ## Repo-Struktur

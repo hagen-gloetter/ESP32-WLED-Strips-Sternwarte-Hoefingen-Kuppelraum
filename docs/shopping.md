@@ -14,7 +14,7 @@
 
 ## Empfohlenes Zubehör
 
-### Netzteil (kaufen!)
+### Netzteil
 
 Für 2× WS2812B 300 LEDs (600 gesamt) + ESP32 bei WLED `maxpwr: 9000 mA`:
 
@@ -23,11 +23,14 @@ Für 2× WS2812B 300 LEDs (600 gesamt) + ESP32 bei WLED `maxpwr: 9000 mA`:
 | **5V / 10A (50W) Schaltnetzteil** | ✅ Ausreichend für alle Rot-Presets + Weiß mit WLED-Limit | **Kaufen** |
 | 5V / 15A (75W) Schaltnetzteil | Weiß 50 % ohne Limiter-Eingriff | Optional |
 
-Empfohlene Produkte:
-- **Meanwell LRS-50-5** (5V / 10A, 50W) — Industriequalität, langlebig
-- **Meanwell LRS-75-5** (5V / 15A, 75W) — falls mehr Weißlicht gewünscht
+Mögliche Produkte:
+- **Meanwell LRS-50-5** (5V / 10A, 50W) — Industriequalität, langlebig  [Amazon](https://amzn.to/4cm3xmB)
+- **Meanwell LRS-75-5** (5V / 15A, 75W) — falls mehr Weißlicht gewünscht [Amazon](https://amzn.to/3QDesAQ)
+- **Meanwell LRS-100-5** (5V / 18A, 90W) — falls mehr Weißlicht gewünscht [Amazon](https://amzn.to/4tQMU9P)
+- 
 
 > ⚠️ Kein USB-Netzteil für die LED-Strips verwenden — zu wenig Strom.
+> ⚠️ Kein Billig-Netzteil verwenden — kann durchbrennen - Brandgefahr.
 > Den ESP32 separat über USB-C versorgen oder vom gleichen 5V-Rail (GND gemeinsam).
 
 ### Weitere Teile
