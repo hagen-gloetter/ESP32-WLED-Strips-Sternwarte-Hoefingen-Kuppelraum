@@ -59,7 +59,7 @@ Orientierung: USB-Anschluss **unten**. Linke Spalte = J2, rechte Spalte = J3.
 ## Verdrahtung LED-Strip
 
 ```
-ESP32 GPIO16 ──[ 470Ω ]──► DIN  (Strip 1, LED 0)
+ESP32 GPIO16 ──[ 10Ω ]──► DIN  (Strip 1, LED 0)
                              ├── DOUT (Strip 1, LED 299)
                              └──► DIN  (Strip 2, LED 300–599)
 
@@ -70,6 +70,19 @@ ESP32 GND    ──────────────── GND (beide Strips)
 
 > **Wichtig:** Die 5V-Versorgung der Strips **nicht** über den ESP32 führen —
 > immer direkt vom Netzteil anschließen. GND gemeinsam verbinden.
+
+> **Widerstandswert:** Der ESP32 liefert auf GPIO-Ausgängen nur **3,3V**. Der Datenpegel
+> liegt damit knapp unterhalb des WS2812B-Schwellwerts von 0,7 × 5V = 3,5V.
+> Ein 470Ω-Widerstand bildet zusammen mit der Leitungskapazität einen RC-Tiefpass,
+> der die Flanken so weit rundet, dass die erste LED das Signal nicht mehr sicher
+> dekodiert → Strip bleibt dunkel. Akzeptabler Bereich: **0Ω–100Ω** (z. B. 10Ω, 33Ω, 47Ω).
+> Bei Problemen alternativ Level-Shifter (74AHCT125).
+
+> **Troubleshooting:** Strip bleibt dunkel trotz korrektem Widerstandswert?
+> → **Kalte Lötstelle prüfen.** Das Multimeter zeigt den richtigen Wert (Gleichstrom),
+> der Kontakt versagt aber bei 800-kHz-Impulsen des WS2812B-Protokolls.
+> Beide Beinchen des Widerstands nachlöten — Lötstelle muss glänzend/konisch sein,
+> nicht matt/kugelförmig.
 
 ---
 
@@ -102,7 +115,7 @@ Physikalischer Anschlussplan (alle Komponenten):
          │                   │        +5V ─────┤  +5V         │  │  +5V          │
          └───────────────────┘        GND ─────┤  GND         │  │  GND          │
                                                │              │  │               │
-  ESP32 GPIO16 ──[R1: 470Ω]────────────────────► DIN          │  │               │
+  ESP32 GPIO16 ──[R1:  10Ω]────────────────────► DIN          │  │               │
                                                │       DOUT ──┼──► DIN           │
   ESP32 GPIO17 ──[SW1: Button Rot  ]── GND     └──────────────┘  └───────────────┘
   ESP32 GPIO18 ──[SW2: Button Weiß ]── GND
@@ -128,7 +141,7 @@ Elektrischer Schaltplan mit Bauteilwerten:
     │                  │                                               │
    GND ────────────────┤ GND (Pin 7)                                   │
     │                  │                              [R1: 470Ω]       │
-    │                  │ GPIO16 (Pin 12) ─────────────┤>─────────────── DIN → Strip 1 → Strip 2
+    │                  │ GPIO16 (Pin 12) ──────────[10Ω]──────────────── DIN → Strip 1 → Strip 2
     │                  │                                               │
     │          ┌───────┤ GPIO17 (Pin 11)                               │
     │          │       │ GPIO18 (Pin  9)                               │
@@ -140,7 +153,10 @@ Elektrischer Schaltplan mit Bauteilwerten:
     │          │
     └──────────┘ GND
 
-  R1  = 470 Ω  (Schutzwiderstand Datenlinie, direkt am ESP32-Pin)
+  R1  =  10 Ω  (Schutzwiderstand Datenlinie, direkt am ESP32-Pin)
+         ↳ Akzeptabler Bereich: 0Ω–100Ω (z. B. 10Ω, 33Ω, 47Ω)
+         ↳ Nicht 470Ω verwenden: ESP32 (3,3V) + 470Ω → RC-Tiefpass dämpft Signal
+           unter WS2812B-Schwellwert (0,7 × 5V = 3,5V) → Strip bleibt dunkel.
   C1  = 1000 µF / 10V  (Pufferkondensator, so nah wie möglich an Strip 1 +5V/GND)
   SW1–SW4 = Momentary Push-Button, NO (Normally Open), eine Seite an GPIO, andere an GND
 ```

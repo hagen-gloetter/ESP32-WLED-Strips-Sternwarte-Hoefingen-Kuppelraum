@@ -6,6 +6,17 @@ Format angelehnt an [Keep a Changelog](https://keepachangelog.com/de/1.0.0/).
 
 ---
 
+## [v5] — 2026-04-15
+
+### Geändert
+- `docs/pinout.md`: R1 von **470Ω → 10Ω** korrigiert (akzeptabler Bereich: 0Ω–100Ω)
+  - Ursache: ESP32 liefert 3,3V; WS2812B-Schwellwert ist 0,7 × 5V = **3,5V**
+  - 470Ω bildet RC-Tiefpass mit Leitungskapazität → Flanken gerundet, Strip bleibt dunkel
+  - 0Ω–100Ω unterdrückt Reflexionen ohne Signalamplitude merklich zu dämpfen
+- `docs/pinout.md`: Erklärungshinweis zum 3,3V/5V-Problem bei Verdrahtung und Schaltplan ergänzt
+
+---
+
 ## [v4] — 2026-04-14
 
 ### Hinzugefügt
