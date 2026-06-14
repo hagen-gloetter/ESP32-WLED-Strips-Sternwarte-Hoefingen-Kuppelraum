@@ -95,7 +95,7 @@ GPIO19 ──┤ Button 3 ├── GND
 GPIO21 ──┤ Button 4 ├── GND
 ```
 
-Interne Pull-Ups aktiv (`pull: true` in `wled_cfg_v2.json`).
+Interne Pull-Ups aktiv (`pull: true` in `wled_cfg_v3.json`).
 Kein externer Widerstand notwendig.
 
 ---
@@ -173,19 +173,19 @@ Elektrischer Schaltplan mit Bauteilwerten:
 | Grün / Blau | ~20 mA              |
 | Weiß (R+G+B)| ~60 mA              |
 
-WLED-Einstellung: `ledma: 55` (Worst-Case Weiß), `maxpwr: 9000 mA` (Software-Limit).
+WLED-Einstellung: `ledma: 55` (Worst-Case Weiß), `maxpwr: 16000 mA` (Software-Limit).
 
 ### Realer Stromverbrauch je Preset (600 LEDs)
 
-| Preset / Modus            | Theoretisch | Tatsächlich (WLED-Limit 9 A) |
+| Preset / Modus            | Theoretisch | Tatsächlich (WLED-Limit 16 A) |
 |---------------------------|-------------|-------------------------------|
 | ESP32 idle                | —           | ~300 mA                       |
 | Rot 10 % (Preset 22)      | ~1,2 A      | **1,2 A** (kein Eingriff)     |
 | Rot 50 % (Preset 20)      | ~6,0 A      | **6,0 A** (kein Eingriff)     |
-| Rot 100 % (Preset 21)     | ~12,0 A     | **→ gedimmt auf ~9 A**        |
+| Rot 100 % (Preset 21)     | ~12,0 A     | **12,0 A** (kein Eingriff)    |
 | Weiß 10 % (Preset 25)     | ~3,6 A      | **3,6 A** (kein Eingriff)     |
-| Weiß 50 % (Preset 23)     | ~18,0 A     | **→ gedimmt auf ~9 A**        |
-| Weiß 100 % (Preset 24)    | ~36,0 A     | **→ gedimmt auf ~9 A**        |
+| Weiß 50 % (Preset 23)     | ~18,0 A     | **→ gedimmt auf ~16 A**       |
+| Weiß 100 % (Preset 24)    | ~36,0 A     | **→ gedimmt auf ~16 A**       |
 | Jede zehnte (Preset 28)   | ~3,6 A      | **3,6 A** (kein Eingriff)     |
 | Alle aus (Preset 26)       | 0 A         | **0 A**                       |
 

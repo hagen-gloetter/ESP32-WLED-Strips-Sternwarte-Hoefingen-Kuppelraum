@@ -6,6 +6,35 @@ Format angelehnt an [Keep a Changelog](https://keepachangelog.com/de/1.0.0/).
 
 ---
 
+## [v6] — 2026-06-14
+
+### Geändert
+- LED-Anzahl erhöht: **600 → 721 LEDs**
+  - 3× WS2812B ECO-Strips (je 300 LEDs), einer abgeschnitten (120 LEDs)
+  - Gesamt: 300 + 300 + 121 = 721 LEDs in Serie
+  - `config/wled_cfg_v3.json`: `total: 721`, alle Segmente auf 721 aktualisiert
+  - `config/wled_presets_v3.json`: alle Presets auf 721 LEDs angepasst
+  - `config/wled_cfg.json`: auf Konsistenz mit v3 aktualisiert
+- Button-Presets für Taster neu optimiert:
+  - **Rot Button**: Short=Rot 50% | Long=**Jede zehnte Rot** (neu) | Double=Rot 100%
+  - **Fun Button**: Preset 30 umbenannt: "Larson" → **"Knight Rider"**
+  - Button-Presets in `wled_presets_v3.json` finalisiert
+- Stromlimit angepasst: `maxpwr` von 18000 auf **16000 mA** in `config/wled_cfg_v3.json` und `config/wled_cfg.json`
+- Versorgung dokumentiert: Einspeisung bei 0 m, 5 m und 10 m; Versorgungsleitung 0,75 mm2 Lautsprecherkabel
+
+### Power-Budget-Übersicht (721 LEDs, maxpwr: 16000 mA)
+
+| Preset            | Verbrauch       | Limiter aktiv? |
+|-------------------|-----------------|----------------|
+| Rot 10 %          | ~1,4 A          | Nein           |
+| Rot 50 %          | ~7,2 A          | Nein           |
+| Rot 100 %         | ~14,4 A         | Nein           |
+| Weiß 10 %         | ~4,3 A          | Nein           |
+| Weiß 50 %         | ~21,6 A → 16,0 A | Ja (→ ~74 %)  |
+| Jede zehnte       | ~4,3 A          | Nein           |
+
+---
+
 ## [v5] — 2026-04-15
 
 ### Geändert
