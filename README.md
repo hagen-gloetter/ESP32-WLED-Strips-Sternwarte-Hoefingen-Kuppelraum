@@ -3,6 +3,8 @@
 WLED-basierte LED-Steuerung für den Kuppelraum der Sternwarte Höfingen.
 ESP32 + 3× WS2812B LED-Strips (5V, adressierbar, auf 721 LEDs gekuerzt) + 4 Hardware-Buttons.
 
+Einsteiger-Setup (Schritt für Schritt): [SETUP.md](SETUP.md)
+
 ## Projekt-Hintergrund
 
 In der Sternwarte war bisher eine klassische Rotlicht-Anlage mit Potentiometer im Einsatz.
@@ -30,6 +32,7 @@ Mitarbeitende und Besuchende gleichzeitig ausreichend Orientierung im Kuppelraum
 
 Pinout-Diagramm: [docs/pinout.md](docs/pinout.md)
 Einkaufsliste:   [docs/shopping.md](docs/shopping.md)
+Setup-Guide:     [SETUP.md](SETUP.md)
 
 ---
 
@@ -85,6 +88,8 @@ Einkaufsliste:   [docs/shopping.md](docs/shopping.md)
    - `config/wled_presets_v3.json` — Presets & Button-Macros
 3. Neu starten.
 
+Für eine komplette, einsteigerfreundliche Schritt-für-Schritt-Anleitung siehe: [SETUP.md](SETUP.md)
+
 > [!ACHTUNG]
 > **VIN und USB niemals gleichzeitig anschließen!**
 >
@@ -109,6 +114,7 @@ config/
 docs/
   pinout.md              <- GPIO-Pinout & Verdrahtung
   shopping.md            <- Einkaufsliste mit Links
+SETUP.md                 <- Einsteiger-Setup Schritt für Schritt
 CHANGELOG.md             <- Änderungshistorie
 README.md
 ```

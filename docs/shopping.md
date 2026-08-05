@@ -1,5 +1,7 @@
 # Einkaufsliste
 
+Schritt-für-Schritt-Setup: [../SETUP.md](../SETUP.md)
+
 ## Controller
 
 | Artikel | Link |

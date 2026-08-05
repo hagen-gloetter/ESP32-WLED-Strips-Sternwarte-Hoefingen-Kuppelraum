@@ -1,6 +1,7 @@
 # Pinout & Verdrahtung — ESP32 Sternwarte Höfingen
 
 Referenz-Diagramm: [esp32-devkitC-v4-pinout.png](esp32-devkitC-v4-pinout.png)
+Schritt-für-Schritt-Setup: [../SETUP.md](../SETUP.md)
 
 ---
 
